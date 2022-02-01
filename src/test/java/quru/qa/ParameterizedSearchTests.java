@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class ParameterizedSearchTests {
-
+    //checking names
     @ValueSource(strings = {"Акунин", "Фейнман"})
     @ParameterizedTest(name = "Тестирование выдачи авторов в поиске с тестовыми данными: {0}")
     void authorTest(String testAuthorsData) {
@@ -28,7 +28,7 @@ public class ParameterizedSearchTests {
             "Харари, научно-популярная литература"
     }
     )
-
+    //checking genres
     @ParameterizedTest(name = "Тестирование выдачи жанров в поиске с тестовыми данными: {0}")
     void genreTest(String testData, String expectedResult) {
         open("https://www.litres.ru/");
@@ -43,7 +43,7 @@ public class ParameterizedSearchTests {
                 Arguments.of("Сто лет одиночества", "Габриэль Гарсиа Маркес")
         );
     }
-
+    //checking authors
     @MethodSource("nameTestDataProvider")
     @ParameterizedTest(name = "Тестирование выдачи авторов по названию в поиске с тестовыми данными: {0}")
     void nameTest(String testsData, String expectedResults) {
