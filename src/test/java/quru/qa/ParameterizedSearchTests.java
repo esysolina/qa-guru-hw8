@@ -19,6 +19,7 @@ public class ParameterizedSearchTests {
     void authorTest(String testAuthorsData) {
         open("https://www.litres.ru/");
         $(".Search-module__input").setValue(testAuthorsData);
+        $(".Search-module__input").shouldBe(visible);
         $(".Search-module__button").click();
         $(".search__found").shouldHave(Condition.text(testAuthorsData));
     }
